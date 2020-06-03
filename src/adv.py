@@ -20,8 +20,9 @@ to north. The smell of gold permeates the air."""),
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
-
-
+#check if rooms hace been created correctly
+for x in room:
+    print(room[x])
 # Link rooms together
 
 room['outside'].n_to = room['foyer']
