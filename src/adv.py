@@ -1,4 +1,5 @@
 from room import Room
+from player import Player
 
 # Declare all the rooms
 
@@ -20,9 +21,7 @@ to north. The smell of gold permeates the air."""),
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
-#check if rooms hace been created correctly
-for x in room:
-    print(room[x])
+
 # Link rooms together
 
 room['outside'].n_to = room['foyer']
@@ -39,6 +38,9 @@ room['treasure'].s_to = room['narrow']
 #
 
 # Make a new player object that is currently in the 'outside' room.
+new_player = Player("Nathan", room["outside"])
+
+print(new_player.room.n_to)
 
 # Write a loop that:
 #
@@ -50,3 +52,38 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+user_input = ''
+while user_input != 'q':
+    print(f"{new_player.room.name}: {new_player.room.description} \n")
+    user_input = input("Enter a direction to go; N, S, E, W: ")
+    user_input.lower()
+    if user_input == "n":
+        if hasattr(new_player.room, 'n_to'):
+            new_player.room = new_player.room.n_to
+        else:
+            print("Cannot got North, please enter another direction\n")
+    elif user_input == "s":
+        if hasattr(new_player.room, 's_to'):
+            new_player.room = new_player.room.s_to
+        else:
+            print("Cannot got South, please enter another direction\n")
+    elif user_input == "e":
+        if hasattr(new_player.room, 'e_to'):
+            new_player.room = new_player.room.e_to
+        else:
+            print("Cannot got East, please enter another direction \n")
+    elif user_input == "w":
+        if hasattr(new_player.room, 'w_to'):
+            new_player.room = new_player.room.w_to
+        else:
+            print("Cannot got West, please enter another direction\n")
+    elif user_input == "q":
+        pass
+    else:
+        print("Please enter in a N, S, E, W, or Q")
+
+
+
+
+

@@ -6,4 +6,4 @@ class Room:
         self.name = name
         self.description = description
     def __str__(self):
-        return f"Room(name={self.name} description={self.description})"
+        return f"Room(name={self.name}, description={self.description})"
