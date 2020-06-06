@@ -147,6 +147,7 @@ while user_input[0] != 'q':
         else:
             print("Please take, get, or drop an item.")
 
+print(room['outside'])
 
 
 
