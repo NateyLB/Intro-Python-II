@@ -17,6 +17,3 @@ class LightSource(Item):
         self.description = description
     def on_drop(self):
         print(f"It's not wise to drop your light!")
-
-
-    
