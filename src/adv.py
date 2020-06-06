@@ -126,6 +126,7 @@ while user_input[0] != 'q':
                 item_match = [x for x in new_player.room.items if x.name == user_input[1]]
                 if len(item_match)>0:
                     new_player.grab_item(item_match[0])
+                    new_player.room.items.remove(item_match[0])
                     item_match[0].on_take()
                 else:
                     print("There is no item by that name.")
@@ -139,6 +140,7 @@ while user_input[0] != 'q':
                 item_match = [x for x in new_player.items if x.name == user_input[1]]
                 if len(item_match)>0:
                     new_player.drop_item(item_match[0])
+                    new_player.room.items.append(item_match[0])
                     item_match[0].on_drop()
                 else:
                     print("There is no item by that name")
